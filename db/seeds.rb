@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+memerList = [
+  [ "Pouria", "Unknown", 69],
+  [ "Prakash", "Gay", 34],
+  [ "Logan", "Homo", 134],
+]
+
+memerList.each do |name, gender, memeCount|
+  Memer.create(name: name, gender: gender, memeCount: memeCount)
+end

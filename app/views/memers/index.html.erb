@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Memers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Memecount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memers.each do |memer| %>
+      <tr>
+        <td><%= memer.name %></td>
+        <td><%= memer.gender %></td>
+        <td><%= memer.memeCount %></td>
+        <td><%= link_to 'Show', memer %></td>
+        <td><%= link_to 'Edit', edit_memer_path(memer) %></td>
+        <td><%= link_to 'Destroy', memer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Memer', new_memer_path %>

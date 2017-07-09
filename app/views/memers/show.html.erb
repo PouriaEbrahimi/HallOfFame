@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @memer.name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @memer.gender %>
+</p>
+
+<p>
+  <strong>Memecount:</strong>
+  <%= @memer.memeCount %>
+</p>
+
+<%= link_to 'Edit', edit_memer_path(@memer) %> |
+<%= link_to 'Back', memers_path %>
