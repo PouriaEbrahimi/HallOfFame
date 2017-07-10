@@ -1,0 +1,11 @@
+%h2 Details about #{@memer.name}
+
+%ul#details
+    %li 
+        Age: 
+        = @memer.age
+    %li 
+        Gender: 
+        = @memer.gender
+    
+= link_to "Back to memers list", memers_path

@@ -12,6 +12,6 @@ memerList = [
   [ "Logan", "Homo", 134],
 ]
 
-memerList.each do |name, gender, memeCount|
-  Memer.create(name: name, gender: gender, memeCount: memeCount)
+memerList.each do |name, gender, age|
+  Memer.create(name: name, gender: gender, age: age)
 end

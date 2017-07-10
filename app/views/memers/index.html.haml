@@ -1,0 +1,15 @@
+%h1 All Siccunt Memers
+
+%table#memers
+    %thead
+        %tr
+            %th Name
+            %th Age
+            %th Gender
+    %tbody
+        - @memers.each do |memer|
+            %tr
+                %td= memer.name
+                %td= memer.age
+                %td= memer.gender
+                %td= link_to "More about #{memer.name}", memer_path(memer)
