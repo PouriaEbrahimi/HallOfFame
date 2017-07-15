@@ -4,8 +4,7 @@ class MemersController < ApplicationController
     end
     
     def show
-        id = params[:id]
-        @memer = Memer.find(id)
+        @memer = Memer.find(params[:id])
     end
     
     def new
@@ -21,6 +20,22 @@ class MemersController < ApplicationController
     end
     
     def edit
-        
+        @memer = Memer.find(params[:id])
+    end
+    
+    def update
+        params.require(:memer)
+        @memer = Memer.find(params[:id])
+        permitted = params[:memer].permit(:name, :age, :gender)
+        @memer.update_attributes!(permitted)
+        flash[:notice] = "#{@memer.name} was successfully updated!"
+        redirect_to memer_path(@memer)
+    end
+    
+    def destroy
+        @memer = Memer.find(params[:id])
+        @memer.destroy
+        flash[:notice] = "Memer #{@memer.name} deleted :("
+        redirect_to memers_path
     end
 end

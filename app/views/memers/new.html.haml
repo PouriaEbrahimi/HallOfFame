@@ -1,17 +1,7 @@
 %h2 Create new memer
 
 = form_tag memers_path, :method => :post do
-
-    = label :memer, :name, 'Name<br>'.html_safe
-    = text_field :memer, :name
-    %br
-    = label :memer, :age, 'Age<br>'.html_safe
-    = text_field :memer, :age
-    %br
-    = label :memer, :gender, 'Gender<br>'.html_safe
-    = text_field :memer, :gender
-    %br
-    %br
+    = render :partial => 'memer_form'
     = submit_tag 'Save Changes'
 %br
 = link_to "Back to memers list", memers_path

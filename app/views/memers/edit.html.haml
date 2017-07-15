@@ -1,0 +1,7 @@
+%h2 Edit memer
+
+= form_tag memer_path(@memer), :method => :put do
+    = render :partial => 'memer_form'
+    = submit_tag 'Update Memer'
+%br
+= link_to "Back to memers list", memers_path
