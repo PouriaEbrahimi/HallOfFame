@@ -8,6 +8,7 @@
         Gender: 
         = @memer.gender
     
-= link_to "Edit info<br>".html_safe, edit_memer_path(@memer)
-= link_to "Delete<br>".html_safe, memer_path(@memer), :method => :delete, :data => {:confirm => "Are you sure?"}
-= link_to "Back to memers list", memers_path
+.btn-group
+    = link_to "Edit Info<br>".html_safe, edit_memer_path(@memer)
+    = link_to "Delete<br>".html_safe, memer_path(@memer), :method => :delete, :data => {:confirm => "Are you sure?"}
+    = link_to "Back", memers_path

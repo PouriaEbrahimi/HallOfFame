@@ -14,9 +14,13 @@ class MemersController < ApplicationController
     def create
         params.require(:memer)
         permitted = params[:memer].permit(:name, :age, :gender)
-        @memer = Memer.create!(permitted)
-        flash[:notice] = "#{@memer.name} was successfully created!"
-        redirect_to memers_path
+        @memer = Memer.new(permitted)
+        if @memer.save
+            flash[:notice] = "#{@memer.name} was successfully created!"
+            redirect_to memers_path
+        else
+            render 'new'
+        end
     end
     
     def edit
@@ -27,9 +31,12 @@ class MemersController < ApplicationController
         params.require(:memer)
         @memer = Memer.find(params[:id])
         permitted = params[:memer].permit(:name, :age, :gender)
-        @memer.update_attributes!(permitted)
-        flash[:notice] = "#{@memer.name} was successfully updated!"
-        redirect_to memer_path(@memer)
+        if @memer.update_attributes(permitted)
+            flash[:notice] = "#{@memer.name} was successfully updated!"
+            redirect_to memer_path(@memer)
+        else
+            render 'edit'
+        end
     end
     
     def destroy

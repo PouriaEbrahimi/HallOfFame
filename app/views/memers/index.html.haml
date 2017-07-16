@@ -1,4 +1,4 @@
-%h1 All Siccunt Memers
+%h1 Devout Memers &#128591;
 
 %table#memers
     %thead
@@ -6,6 +6,7 @@
             %th Name
             %th Age
             %th Gender
+            %th More Info
     %tbody
         = render @memers
-= link_to "Add new memer", new_memer_path
+%div= link_to "Add new memer", new_memer_path
