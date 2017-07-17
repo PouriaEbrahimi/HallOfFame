@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717053527) do
+ActiveRecord::Schema.define(version: 20170717093954) do
 
   create_table "memers", force: :cascade do |t|
     t.string   "name"
@@ -19,8 +19,14 @@ ActiveRecord::Schema.define(version: 20170717053527) do
     t.string   "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "provider"
+  end
+
+  create_table "priv_memers", force: :cascade do |t|
+    t.string   "name"
     t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "provider"
   end
 
 end

@@ -1,13 +1,6 @@
 class Memer < ActiveRecord::Base
-    def self.create_with_omniauth(auth)
-        Memer.create!(
-            :provider => auth["provider"],
-            :uid => auth["uid"],
-            :name => auth["info"]["name"])
-    end
-    
     validates :name, :presence => true, uniqueness: {case_sensitive: false, message: "already in use"},
-    format: { with: /\A[a-zA-Z]*+\z/, message: "only uses alphabet characters without spaces" }
+    format: { with: /\A[a-zA-Z ]*+\z/, message: "only uses alphabet characters without spaces" }
     
     validates :age, :presence => true
     validates_numericality_of :age, only_integer: true, message: "only uses numbers"
