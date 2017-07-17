@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protected
   
   def set_current_user
-    @current_user ||= Memer.find_by(id: session[:user_id])
-    # redirect_to memers_path and return unless @current_user
+    @current_user ||= PrivMemer.find_by(id: session[:user_id])
+    redirect_to priv_memers_path and return unless @current_user
   end
 end

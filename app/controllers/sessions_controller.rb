@@ -4,15 +4,14 @@ class SessionsController < ApplicationController
     
     def create
         auth = request.env["omniauth.auth"]
-        user = Memer.find_by(:provider => auth["provider"], :uid => auth["uid"]) ||
-          Memer.create_with_omniauth(auth)
+        user = PrivMemer.find_by(:provider => auth["provider"], :uid => auth["uid"]) ||
+          PrivMemer.create_with_omniauth(auth)
         session[:user_id] = user.id
         redirect_to memers_path
     end
     
     def destroy
         session.delete(:user_id)
-        flash[:notice] = 'Logged out successfully'
         redirect_to memers_path
     end
 end

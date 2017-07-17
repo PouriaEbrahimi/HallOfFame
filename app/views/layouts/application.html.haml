@@ -9,7 +9,10 @@
   %body
     // %h1.title HallOfFame
     #main
-      = render :partial => 'sessions/login'
+      - if params[:controller] == "priv_memers" && params[:action] == "index"
+        - #we are on login page
+      - else
+        = render :partial => 'sessions/login'
       - if flash[:notice]
         #notice.message= flash[:notice]
       - elsif flash[:warning]

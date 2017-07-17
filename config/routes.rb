@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :memers
+  resources :memers, :priv_memers
+  
   root 'memers#index'
   
   #third part auth stuff
