@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'memers#index'
   
   #third part auth stuff
-  # get 'auth/:provider/callback' => 'sessions#create'
-  # post 'logout' => 'sessions#destroy'
-  # get 'auth/failure' => 'sessions#failure'
-  # get 'auth/facebook', :as => 'login'
+  get 'auth/:provider/callback' => 'sessions#create'
+  post 'logout' => 'sessions#destroy'
+  get 'auth/failure' => 'sessions#failure'
+  get 'auth/facebook', :as => 'login'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
