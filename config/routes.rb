@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :memers, :priv_memers
   
-  root 'memers#index'
+  root 'priv_memers#index'
   
   #third part auth stuff
   get 'auth/:provider/callback' => 'sessions#create'
